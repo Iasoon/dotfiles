@@ -1,0 +1,12 @@
+[user]
+    email = ilion.beyst@gmail.com
+    name = Ilion Beyst
+
+[alias]
+    co = checkout
+
+[push]
+    default = current
+
+[pull]
+    rebase = true
