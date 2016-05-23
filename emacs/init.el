@@ -28,7 +28,8 @@
 		  'helm-projectile
 		  'magit
 		  'company
-		  'flycheck )
+		  'flycheck
+		  'solarized-theme)
 
 ;; helm
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -38,3 +39,6 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+
+;; colours!
+(load-theme 'solarized-light t)
