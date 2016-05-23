@@ -38,3 +38,8 @@
 (use-package solarized-theme
   :config
   (load-theme 'solarized-light t))
+
+;; C programming
+(use-package rtags
+  :config
+  (setq rtags-path (expand-file-name "~/src/rtags/bin")))
