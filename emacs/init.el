@@ -15,30 +15,26 @@
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+(setq use-package-always-ensure t)
 
-(defun ensure-installed (&rest packages)
-  (mapcar
-   (lambda (package)
-     (unless (package-installed-p package)
-       (package-install package)))
-   packages))
+(use-package helm
+  :config
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (helm-mode 1))
 
-(ensure-installed 'helm
-		  'projectile
-		  'helm-projectile
-		  'magit
-		  'company
-		  'flycheck
-		  'solarized-theme)
+(use-package projectile
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm))
 
-;; helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-(helm-mode 1)
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
 
-;; projectile
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
+(use-package magit)
+(use-package company)
+(use-package flycheck)
 
-;; colours!
-(load-theme 'solarized-light t)
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-light t))
