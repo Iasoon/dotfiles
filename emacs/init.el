@@ -6,6 +6,9 @@
 ;; Pls no
 (setq inhibit-startup-screen t)
 
+;; Git exists
+(setq make-backup-files nil)
+
 (require 'package)
 
 ;; Packages
@@ -16,6 +19,10 @@
 (package-initialize)
 
 (setq use-package-always-ensure t)
+
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-light t))
 
 (use-package helm
   :config
@@ -30,16 +37,24 @@
 (use-package helm-projectile
   :config
   (helm-projectile-on))
-
 (use-package magit)
-(use-package company)
-(use-package flycheck)
 
-(use-package solarized-theme
-  :config
-  (load-theme 'solarized-light t))
+(use-package company)
+
+(use-package flycheck)
 
 ;; C programming
 (use-package rtags
   :config
   (setq rtags-path (expand-file-name "~/src/rtags/bin")))
+
+(use-package evil
+  :init
+  (evil-mode 1)
+  :bind
+  (:map evil-normal-state-map
+	(";"   . helm-M-x)
+	("C-j" . scroll-down-command)
+	("C-k" . scroll-up-command)))
+
+(global-set-key [escape] 'keyboard-escape-quit)
