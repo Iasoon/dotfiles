@@ -47,14 +47,3 @@
 (use-package rtags
   :config
   (setq rtags-path (expand-file-name "~/src/rtags/bin")))
-
-(use-package evil
-  :init
-  (evil-mode 1)
-  :bind
-  (:map evil-normal-state-map
-	(";"   . helm-M-x)
-	("C-j" . scroll-down-command)
-	("C-k" . scroll-up-command)))
-
-(global-set-key [escape] 'keyboard-escape-quit)
