@@ -37,6 +37,7 @@
 (use-package helm-projectile
   :config
   (helm-projectile-on))
+
 (use-package magit)
 
 (use-package company)
@@ -47,3 +48,22 @@
 (use-package rtags
   :config
   (setq rtags-path (expand-file-name "~/src/rtags/bin")))
+
+(use-package lispy
+  :bind
+  (:map lispy-mode-map
+	("[" . nil)
+	("]" . nil)
+	("}" . nil))
+  :config
+  (mapc (lambda (bind) (lispy-define-key lispy-mode-map (car bind) (cdr bind)))
+  	'(("h" . lispy-down)
+  	  ("t" . lispy-up)
+  	  ("n" . lispy-forward)
+  	  ("d" . lispy-left)
+	  ("s" . lispy-right)
+	  ("o" . lispy-different)
+	  ("H" . lispy-move-down)
+	  ("T" . lispy-move-up))))
+
+(add-hook 'emacs-lisp-mode-hook 'lispy-mode)
