@@ -50,16 +50,12 @@
   (setq rtags-path (expand-file-name "~/src/rtags/bin")))
 
 (use-package lispy
-  :bind
-  (:map lispy-mode-map
-	("[" . nil)
-	("]" . nil)
-	("}" . nil))
   :config
+  ;; dvorak friendly bindings
   (mapc (lambda (bind) (lispy-define-key lispy-mode-map (car bind) (cdr bind)))
   	'(("h" . lispy-down)
   	  ("t" . lispy-up)
-  	  ("n" . lispy-forward)
+  	  ("n" . lispy-flow)
   	  ("d" . lispy-left)
 	  ("s" . lispy-right)
 	  ("o" . lispy-different)
