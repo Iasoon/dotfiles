@@ -28,12 +28,14 @@
   :config
   (helm-mode 1)
   :bind
-  (("M-x"   . helm-M-x)
+  (("M-x"     . helm-M-x)
+   ("C-x C-f" . helm-find-files)
+   ("C-x C-b" . helm-buffers-list)
    :map helm-map
-   ("<tab>" . helm-execute-persistent-action)
-   ("C-s"   . helm-select-action)
-   ("C-j"   . nil)
-   ("C-z"   . nil)))
+   ("<tab>"   . helm-execute-persistent-action)
+   ("C-s"     . helm-select-action)
+   ("C-j"     . nil)
+   ("C-z"     . nil)))
 
 (use-package projectile
   :config
@@ -44,7 +46,9 @@
   :config
   (helm-projectile-on))
 
-(use-package magit)
+(use-package magit
+  :bind
+  (("C-x g" . magit-status)))
 
 (use-package company)
 
