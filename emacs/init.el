@@ -26,8 +26,14 @@
 
 (use-package helm
   :config
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (helm-mode 1))
+  (helm-mode 1)
+  :bind
+  (("M-x"   . helm-M-x)
+   :map helm-map
+   ("<tab>" . helm-execute-persistent-action)
+   ("C-s"   . helm-select-action)
+   ("C-j"   . nil)
+   ("C-z"   . nil)))
 
 (use-package projectile
   :config
