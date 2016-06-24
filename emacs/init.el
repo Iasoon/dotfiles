@@ -63,3 +63,7 @@
 	  ("T" . lispy-move-up))))
 
 (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
+
+(use-package expand-region)
+
+(use-package multiple-cursors)
