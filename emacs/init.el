@@ -27,6 +27,8 @@
 (use-package helm
   :config
   (helm-mode 1)
+  (setq helm-split-window-in-side-p t)
+  (setq helm-display-header-line nil)
   :bind
   (("M-x"     . helm-M-x)
    ("C-x C-f" . helm-find-files)
@@ -36,6 +38,14 @@
    ("C-s"     . helm-select-action)
    ("C-j"     . nil)
    ("C-z"     . nil)))
+
+(setq display-buffer-alist nil)
+(add-to-list 'display-buffer-alist
+	     `(,(rx bos "*" (* nonl) "helm" (* nonl) "*" eos)
+		 (display-buffer-in-side-window)
+		 (inhibit-same-window . t)
+		 (side . bottom)
+		 (window-height . 0.2)))
 
 (use-package projectile
   :config
