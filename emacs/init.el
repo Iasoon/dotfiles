@@ -9,6 +9,8 @@
 ;; Git exists
 (setq make-backup-files nil)
 
+(setq scroll-preserve-screen-position t)
+
 (require 'package)
 
 ;; Packages
