@@ -23,12 +23,11 @@
 (setq use-package-always-ensure t)
 
 (use-package solarized-theme
-  :config
-  (load-theme 'solarized-light t))
+  :init (load-theme 'solarized-light t))
 
 (use-package helm
+  :init   (helm-mode 1)
   :config
-  (helm-mode 1)
   (setq helm-split-window-in-side-p t)
   (setq helm-display-header-line nil)
   :bind
@@ -50,8 +49,8 @@
 		 (window-height . 0.2)))
 
 (use-package projectile
+  :init   (projectile-global-mode)
   :config
-  (projectile-global-mode)
   (setq projectile-completion-system 'helm))
 
 (use-package helm-projectile
@@ -95,11 +94,10 @@
 (use-package multiple-cursors)
 
 (use-package which-key
+  :init (which-key-mode)
   :config
-  (which-key-mode)
   (which-key-declare-prefixes
     "C-c g" "git"))
 
 (use-package undo-tree
-  :config
-  (global-undo-tree-mode))
+  :init (global-undo-tree-mode))
