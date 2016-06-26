@@ -32,7 +32,7 @@
   :bind
   (("M-x"     . helm-M-x)
    ("C-x C-f" . helm-find-files)
-   ("C-x C-b" . helm-buffers-list)
+   ("C-x b"   . helm-buffers-list)
    :map helm-map
    ("<tab>"   . helm-execute-persistent-action)
    ("C-s"     . helm-select-action)
@@ -58,7 +58,11 @@
 
 (use-package magit
   :bind
-  (("C-x g" . magit-status)))
+  (("C-c g s" . magit-status)
+   ("C-c g c" . magit-commit)
+   ("C-c g d" . magit-diff)
+   ("C-c g b" . magit-blame)
+   ("C-c g l" . magit-log)))
 
 (use-package company)
 
@@ -87,3 +91,9 @@
 (use-package expand-region)
 
 (use-package multiple-cursors)
+
+(use-package which-key
+  :config
+  (which-key-mode)
+  (which-key-declare-prefixes
+    "C-c g" "git"))
