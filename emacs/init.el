@@ -97,3 +97,7 @@
   (which-key-mode)
   (which-key-declare-prefixes
     "C-c g" "git"))
+
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode))
