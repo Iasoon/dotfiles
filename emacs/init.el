@@ -60,7 +60,7 @@
 (use-package magit
   :bind
   (("C-c g s" . magit-status)
-   ("C-c g c" . magit-commit)
+   ("C-c g c" . magit-commit-popup)
    ("C-c g d" . magit-diff)
    ("C-c g b" . magit-blame)
    ("C-c g l" . magit-log)))
