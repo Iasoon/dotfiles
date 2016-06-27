@@ -87,8 +87,6 @@
 	  ("H" . lispy-move-down)
 	  ("T" . lispy-move-up))))
 
-(add-hook 'emacs-lisp-mode-hook 'lispy-mode)
-
 (use-package expand-region)
 
 (use-package multiple-cursors)
@@ -101,3 +99,10 @@
 
 (use-package undo-tree
   :init (global-undo-tree-mode))
+
+
+(use-package clojure-mode)
+(use-package cider)
+
+(add-hook 'emacs-lisp-mode-hook 'lispy-mode)
+(add-hook 'clojure-mode-hook 'lispy-mode)
